@@ -19,16 +19,15 @@ def hello(name):
 def distance():
     import math
     r = request.get_json()
-    x1 = r["a"][1]
-    print(x1)
-    x2 = r["b"][1]
-    y1 = r["a"][2]
-    y2 = r["b"][2]
+    x1 = r["a"][0]
+    x2 = r["b"][0]
+    y1 = r["a"][1]
+    y2 = r["b"][1]
     c = math.sqrt(math.pow((x1-x2),2) + math.pow(y1-y2,2))
-    return x1
-    # dist = {
-    #     "distance" : c
-    #     "a" : r["a"]
-    #     "b" : r["b"]
-    # }
-    # return jsonify(dist)
+
+    dist = {
+        "distance" : c ,
+        "a" : [x1,y1] ,
+        "b" : [x2,y2]
+    }
+    return jsonify(dist)
