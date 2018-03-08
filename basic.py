@@ -12,7 +12,7 @@ def name():
 def hello(name):
     helloMessage = {
         "message": "hello there, {0}".format(name)
-    }
+        }
     return jsonify(helloMessage)
 
 @app.route("/distance", methods = ["POST"])
